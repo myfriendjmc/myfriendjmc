@@ -1,0 +1,15 @@
+# Archivo a actualizar
+readme_file: "README.md"
+
+# Marcadores que el Action reemplaza (estos son los que busca por defecto)
+start_comment: "<!--RECENT_ACTIVITY:start-->"
+end_comment: "<!--RECENT_ACTIVITY:end-->"
+
+# Opcionales
+commit_message: "chore(readme): update recent activity"
+target_branch: "main"   # cambia a "master" si aplica
+max_lines: 20
+
+# (Opcional) plantilla por línea
+# Variables: {type}, {repo}, {url}, {payload}, {createdAt}
+line_template: "- {payload} in [{repo}]({url})"
