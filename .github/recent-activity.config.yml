@@ -1,0 +1,22 @@
+settings:
+  username: myfriendjmc
+  commit_msg: "chore: update recent activity"
+  max_lines: 10
+  readme_file: "./README.md"
+
+  # Zona horaria y formato del sello de tiempo de “última actualización”
+  date:
+    timezone: "America/Bogota"
+    text: "Última actualización: {DATE}"
+    # Puedes ajustar el formato a tu gusto (usa formato de date-fns / Intl)
+    format: "EEEE, d 'de' MMMM 'de' yyyy, h:mm a"
+
+  # Opcional: excluir eventos o repos
+  disabled_events: []   # p.ej.: ["comments", "wiki"]
+  ignored_repos:
+    - myfriendjmc/myfriendjmc  # evita “loops” si quieres ignorar commits a tu repo de perfil
+
+# Puedes personalizar textos por tipo de evento en la sección "messages:"
+# messages:
+#   pr_open: "💪 Abrí un PR {ID} en {REPO}"
+#   issue_open: "❗ Abrí el issue {ID} en {REPO}"
