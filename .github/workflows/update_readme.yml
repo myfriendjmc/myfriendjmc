@@ -1,0 +1,36 @@
+name: Update README
+
+on:
+  schedule:
+    # Cada 12 horas
+    - cron: "0 */12 * * *"
+  # Permite ejecutarlo manualmente desde la pestaña Actions
+  workflow_dispatch:
+
+# Necesario para poder commitear el README
+permissions:
+  contents: write
+
+concurrency:
+  group: update-readme
+  cancel-in-progress: false
+
+jobs:
+  update_readme:
+    name: Update Profile README
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update recent activity section
+        uses: Readme-Workflows/recent-activity@v2.4.1
+        env:
+          # Usa el token del repo (no necesitas PAT para este action)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Opcionales – ajústalos a tu gusto
+          MAX_LINES: "20"                 # cuántas líneas de actividad mostrar
+          TARGET_BRANCH: "main"           # cambia a "master" si tu rama por defecto es master
+          TARGET_FILE: "README.md"        # archivo a actualizar
+          COMMIT_MESSAGE: "chore(readme): update recent activity"
